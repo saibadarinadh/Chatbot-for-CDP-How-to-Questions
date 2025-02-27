@@ -1,0 +1,5 @@
+{
+  "title": "2. Content Setup",
+  "content": "Lytics' Interest Engines effectively analyze your content with minimal effort required. However, to guarantee that the classification results align with your expectations, conducting a quick test is advisable, as poor metadata can sometimes lead to less-than-optimal outcomes. The most reliable method to ensure comprehensive and satisfactory content classification is to classify a selection of your URLs manually.\n- Use the left-hand navigation to selectContent>Classification.\n- Click on the section labeledClassify, then paste a URL from your website and pressClassify.\n- After a moment or two, a set of preliminary classification details will come back. Most notably, ensure theTitle,Primary Image, andTopicscome back with content. If they do not, please refer to ourfull documentationfor configuring content and meta tags.\nUpdated5 months ago\n- 3. Surface Personalized Message",
+  "url": "https://docs.lytics.com/docs/developer-quickstart-2-content-setup"
+}

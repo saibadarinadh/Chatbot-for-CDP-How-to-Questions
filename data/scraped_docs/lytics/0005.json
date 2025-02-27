@@ -1,0 +1,5 @@
+{
+  "title": "Monitoring Metrics and Alerts",
+  "content": "## Monitoring\nMonitoring and alerting is available on every job and every authorization within Lytics.\nTo set up alerting on your jobs or authorizations, you can set up a monitoring job from either the Job API or the Lytics UI for alerting toSlack,Microsoft Teams, or directly toemail.\nIf a source or destination job has failed, Lytics will show the latest error message on the Conductor Diagnostics Dashboard and on the Logs tab of the Source/Destination Job Summary interface, and allow the job to be restarted if needed. The most detailed information for troubleshooting can be accessed from theJob Logs API\nAdditional generic monitoring on the Lytics system is available on our status page atlytics.statuspage.io.\nUpdated12 months ago",
+  "url": "https://docs.lytics.com/docs/monitoring-and-alerts"
+}
