@@ -1,0 +1,432 @@
+/* Update the header styles */
+.header {
+  padding: 10px;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center; /* Add this */
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Change from space-between to center */
+  position: relative; /* Add this */
+}
+
+.header-title {
+  font-size: 25px;
+  font-weight: 600;
+  color: #202124;
+  margin: 0; /* Add this */
+  padding: 0; /* Add this */
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: absolute; /* Add this */
+  right: 0; /* Add this */
+}
+/* ...existing spreadsheet styles... */
+
+/* src/app/globals.css */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  color: #202124;
+}
+
+.spreadsheet-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f8f9fa;
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  align-items: center;
+}
+
+.grid-container {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+}
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  min-width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dialog h2 {
+  margin-bottom: 16px;
+  color: #202124;
+}
+
+.dialog input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn {
+  padding: 5px 10px;
+  background-color: #f1f3f4;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background-color: #e8eaed;
+}
+
+.btn-primary {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #1967d2;
+}
+
+.toolbar-divider {
+  width: 1px;
+  height: 24px;
+  background-color: #e0e0e0;
+  margin: 0 8px;
+}
+
+.toolbar-button {
+  padding: 6px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  color: #5f6368;
+  transition: all 0.2s;
+}
+
+.toolbar-button:hover {
+  background-color: #f1f3f4;
+}
+
+.toolbar-button.active {
+  background-color: #e8f0fe;
+  color: #1a73e8;
+  border-color: #1a73e8;
+}
+
+.toolbar-select {
+  padding: 6px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.toolbar-color {
+  width: 32px;
+  height: 32px;
+  padding: 2px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.spreadsheet-grid {
+  flex: 1;
+  overflow: auto;
+  background: white;
+  border-collapse: collapse;
+}
+
+.row {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  height: 25px;
+  min-height: 25px;
+}
+
+.cell {
+  position: relative;
+  border: 1px solid #e0e0e0;
+  padding: 0;
+  height: 25px;
+  min-width: 50px; /* Add this line to set minimum width */
+  display: flex;
+  align-items: center;
+  background: white;
+  overflow: hidden;
+  min-width: 120px;
+}
+
+.cell-input {
+  width: 100%;
+  height: 100%;
+  padding: 4px 6px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+}
+
+.cell-resize-handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  cursor: col-resize;
+  background: transparent;
+}
+
+.cell-resize-handle:hover {
+  background: #1a73e8;
+}
+
+.cell.selected {
+  border: 2px solid #1a73e8;
+  z-index: 2;
+}
+
+.cell.selected .cell-input {
+  background: white;
+}
+
+.cell.in-range {
+  background-color: #e8f0fe;
+}
+
+.formula-bar {
+  display: flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  height: 30px;
+}
+
+.formula-label {
+  padding: 0 8px;
+  color: #5f6368;
+  font-size: 14px;
+}
+
+.formula-input {
+  flex: 1;
+  height: 24px;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  padding: 0 8px;
+  font-size: 14px;
+}
+
+.formula-input:focus {
+  border-color: #1a73e8;
+  outline: none;
+}
+
+/* Function groups */
+.formatting-group,
+.math-functions-group,
+.data-quality-group,
+.structure-group {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+   min-width: 150px;
+}
+
+/* Add these styles to your existing globals.css */
+.cell input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.header-row {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #f8f9fa;
+   min-width: 150px;
+}
+
+.row {
+  display: flex;
+}
+
+.grid-container {
+  overflow: auto;
+  height: calc(100vh - 120px);
+  position: relative;
+}
+
+.spreadsheet-grid {
+  background: white;
+  border-collapse: collapse;
+}
+
+.cell-content {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.row-header {
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  background: #f8f9fa;
+  width: 40px; /* Fixed width for row numbers */
+  min-width: 40px;
+  height: 25px; /* Match cell height */
+  border: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  
+}
+
+.column-header {
+  position: sticky;
+  top: 0;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  user-select: none;
+  z-index: 10;
+  min-width: 120px;
+}
+
+.resize-handle {
+  position: absolute;
+  right: -2px; /* Adjusted for better grip */
+  top: 0;
+  width: 4px;
+  height: 100%;
+  cursor: col-resize;
+  background: transparent;
+  z-index: 20;
+}
+
+.resize-handle:hover {
+  background: #1a73e8;
+}
+
+.row-resize-handle {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  cursor: row-resize;
+  background: transparent;
+  transition: background 0.2s;
+}
+
+.row-resize-handle:hover {
+  background: #1a73e8;
+}
+
+/* Corner header style */
+.corner-header {
+  width: 40px; /* Match row header width */
+  min-width: 40px;
+  height: 25px; /* Match column header height */
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  position: sticky;
+  left: 0;
+  z-index: 15;
+}
+
+/* Add to your existing CSS */
+.file-operations-group {
+  display: flex;
+  gap: 8px;
+}
+
+.file-operations-group .toolbar-button {
+  padding: 4px 12px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.file-operations-group .toolbar-button:hover {
+  background-color: #1557b0;
+}
+
+/* Add styles for drag interaction */
+.cell.dragging {
+  opacity: 0.7;
+  background-color: #e8f0fe;
+  cursor: move;
+}
+
+.cell.drag-over {
+  border: 2px dashed #1a73e8;
+}
